@@ -1,0 +1,16 @@
+#注册到Eureka的服务暴露的端口
+server:
+  port: 8083
+
+# 指定eureka客户端的注册地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:9000/eureka/
+  instance:
+    hostname: localhost
+
+#当前服务名称
+spring:
+  application:
+    name: eurekaservice02

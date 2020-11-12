@@ -1,0 +1,19 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/ #当前zuul网关想要注册到哪个注册中心这里注册到之前搭的9000上。#路由规则定义。这里定义两种路由规则route1和route
+zuul:
+  routes:
+    route1:
+      path: /route1/** #访问路径为route1
+      serviceId: eurekaservice01 #路由到服务1处理请求
+    route2:
+      path: /route2/** #访问路径为route2
+      serviceId: eurekaservice02 #路由到服务1处理请求
